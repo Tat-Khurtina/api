@@ -22,11 +22,14 @@ db = SQLAlchemy(app)
 
 def initDB():
     db_path = os.path.join(os.path.dirname(__file__), 'app.db')
-    db_uri = 'sqlite:///{}'.format(db_path)
+    #db_uri = 'sqlite:///{}'.format(db_path)
+    #db_uri = "postgresql://user1:user1@10.20.14.72:5432/user1"
+    db_uri = "mysql://app:app@10.20.14.88:3306/app"
+
     db = SQLAlchemy(app)
     db.create_all()
     app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
-    if len(list(db.engine.execute("SELECT * FROM sqlite_master where type = 'table'").fetchall())) == 0:
+    if len(list(db.engine.execute("SHOW TABLES LIKE 'T_LINK'").fetchall())) == 0:
         db.engine.execute("CREATE TABLE T_LINK"
                           "("
                           " PK_ID           VARCHAR(60) NOT NULL,"
