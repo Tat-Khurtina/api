@@ -1,0 +1,14 @@
+click
+colorama
+Flask
+Flask-SQLAlchemy
+greenlet
+itsdangerous
+Jinja2
+MarkupSafe
+mysqlclient
+numpy
+opencv-python
+psycopg2
+SQLAlchemy
+Werkzeug
